@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SurgFlowX — Contact-Coupled Flow for Deformable Surgical Manipulation</title>
+<meta name="description" content="SurgFlowX learns contact-coupled flow — where to act and how the tissue should move — from action-free surgical video, and executes it across robot embodiments.">
+
+<!-- Open Graph / social preview. TODO: set og:url to the final domain once live. -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="SurgFlowX — Contact-Coupled Flow for Deformable Surgical Manipulation">
+<meta property="og:description" content="Manipulation intent is where you act and how the object should move. SurgFlowX learns both from action-free surgical video.">
+<meta property="og:image"       content="static/images/teaser.png">
+<meta name="twitter:card"       content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- ============================================================== HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Anonymous submission &middot; under review</p>
+
+    <h1 class="title"><span class="brand">SurgFlowX</span>: Contact-Coupled Flow for<br>Deformable Surgical Manipulation</h1>
+
+    <p class="subtitle">Manipulation intent is <em>where</em> you act and <em>how</em> the tissue should move &mdash; a pair that belongs to the task, not to the arm performing it.</p>
+
+    <!-- TODO (post-acceptance): replace with author list + affiliations. -->
+    <p class="authors">Anonymous Authors</p>
+    <p class="venue">Paper under review. Author names, affiliations and links are withheld for double-blind review.</p>
+
+    <ul class="linkbar">
+      <!-- TODO: drop aria-disabled and set real href for each link as it becomes available. -->
+      <li><a href="#" aria-disabled="true" title="Available after review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Paper</a></li>
+      <li><a href="#" aria-disabled="true" title="Available after review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        arXiv</a></li>
+      <li><a href="#" aria-disabled="true" title="Released on publication">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+        Code</a></li>
+      <li><a href="#" aria-disabled="true" title="Released on publication">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+        Dataset</a></li>
+      <li><a href="#results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10 8 6 4-6 4V8z"/><rect x="2" y="3" width="20" height="18" rx="2"/></svg>
+        Results</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- =========================================================== TEASER -->
+<section id="teaser">
+  <div class="wrap">
+    <figure class="plate">
+      <img src="static/images/teaser.png" alt="Overview of contact-coupled flow: a contact field over tissue query points paired with predicted future 3D object flow." width="1800" height="1049" decoding="async">
+      <figcaption><b>Contact-coupled flow.</b> A dense object-centric 3D flow field says <em>how</em> the tissue should move; a probabilistic contact field over the same query points says <em>where</em> a gripper must act to make that motion happen. Both are defined on the object, so neither depends on which robot executes the task.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ========================================================= ABSTRACT -->
+<section id="abstract">
+  <div class="wrap narrow">
+    <h2>Abstract</h2>
+    <p class="section-note"><span class="todo">DRAFT</span> &nbsp;Replace with the final camera-ready abstract.</p>
+
+    <p class="lead">Manipulation intent has two parts: <em>where</em> to act on an object, and <em>how</em> that object should move. We represent both as <b>contact-coupled flow</b> &mdash; a dense object-centric 3D flow field paired with a probabilistic contact field defined over the same query points. Unlike tool trajectories or robot joint actions, this pair is embodiment-invariant: it describes the task rather than the arm that performs it.</p>
+
+    <p>We extract contact-coupled flow from <b>action-free surgical video</b> using a training-free estimator that combines motion coupling, engagement gating and distance shading over tracked query points. It uses no force sensing and no proprioception, and is grounded per embodiment by two landmarks only &mdash; forceps jaws for a surgical robot, thumb and index finger for a human demonstrator.</p>
+
+    <p>A generator predicts future contact-coupled flow from a single point-cloud observation, and a model-based executor follows it: it grasps at the contact maximum and servos along the predicted flow with receding-horizon re-prediction, monitoring its own contact belief to detect slip and recover from it. We evaluate tissue retraction on a da Vinci Research Kit and on a humanoid laparoscopic platform, including transfer from human video alone.</p>
+  </div>
+</section>
+
+<!-- =========================================================== METHOD -->
+<section id="method">
+  <div class="wrap">
+    <h2>Method</h2>
+    <p class="section-note">From action-free video to a robot-executable representation.</p>
+
+    <figure class="plate wide">
+      <div class="scroller"><img src="static/images/method.png" alt="SurgFlowX pipeline: action-free video, contact-coupled flow extraction, flow generation, and model-based execution." width="2200" height="823" decoding="async" loading="lazy"></div>
+      <p class="hint">Scroll the figure sideways to read the detail &rarr;</p>
+      <figcaption><b>The SurgFlowX pipeline.</b> Surgical video is converted into tracked 3D query points; the extractor labels each point with a contact probability and a future flow vector; the generator learns to predict that pair from a single observation; the executor turns a prediction into robot motion.</figcaption>
+    </figure>
+
+    <div class="narrow">
+      <h3>Training-free contact extraction</h3>
+      <p>Contact is inferred from <em>motion coupling</em> &mdash; how strongly a tissue point moves with the instrument &mdash; gated by an engagement test so that nothing is attributed to contact before the tool actually interacts, and shaded by distance so that nearby evidence counts more than far evidence. The estimator is physically normalized rather than per-episode percentile-normalized, so contact probabilities mean the same thing across episodes.</p>
+
+      <h3>Embodiment-invariant by construction</h3>
+      <p>Because both channels live on the object, a human demonstration and a robot demonstration of the same task produce the same target representation. Grounding requires only a two-landmark correspondence between the demonstrator's end effector and the robot's.</p>
+
+      <h3>Execution with contact monitoring</h3>
+      <p>The executor grasps at the contact maximum and follows the predicted flow. Because the contact estimator runs online, the same signal that trained the representation also serves as a slip detector at test time, triggering regrasp when the contact belief collapses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== RESULTS -->
+<section id="results">
+  <div class="wrap">
+    <h2>Extracted contact-coupled flow</h2>
+    <p class="section-note">Contact field in <span style="color:var(--ember);font-weight:600">ember</span>; object flow shaded <span style="color:var(--cool);font-weight:600">cool</span> to <span style="color:var(--warm);font-weight:600">warm</span> over the prediction horizon.</p>
+
+    <div class="vgrid">
+      <div class="vcard">
+        <video data-src="static/videos/exvivo_contact_flow.mp4" poster="static/videos/exvivo_contact_flow.jpg" muted loop playsinline preload="none" width="1100" height="780"></video>
+        <div class="vmeta">
+          <p class="vlabel contact">Contact field &middot; ex-vivo tissue</p>
+          <p>Contact concentrates on the grasped fold and stays anchored through the retraction.</p>
+        </div>
+      </div>
+      <div class="vcard">
+        <video data-src="static/videos/exvivo_object_flow.mp4" poster="static/videos/exvivo_object_flow.jpg" muted loop playsinline preload="none" width="1100" height="780"></video>
+        <div class="vmeta">
+          <p class="vlabel flow">Object flow &middot; ex-vivo tissue</p>
+          <p>Predicted future motion of the tissue surface as the flap is revealed.</p>
+        </div>
+      </div>
+      <div class="vcard">
+        <video data-src="static/videos/nh_contact_flow.mp4" poster="static/videos/nh_contact_flow.jpg" muted loop playsinline preload="none" width="1100" height="780"></video>
+        <div class="vmeta">
+          <p class="vlabel contact">Contact field &middot; needle handover</p>
+          <p>Contact transfers between instruments as the needle changes hands.</p>
+        </div>
+      </div>
+      <div class="vcard">
+        <video data-src="static/videos/nh_object_flow.mp4" poster="static/videos/nh_object_flow.jpg" muted loop playsinline preload="none" width="1100" height="780"></video>
+        <div class="vmeta">
+          <p class="vlabel flow">Object flow &middot; needle handover</p>
+          <p>The needle's trajectory through reach, lift and release.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Tracked query points</h3>
+    <div class="vgrid" style="margin-top:14px">
+      <figure class="plate">
+        <img src="static/images/exvivo_flow_tracks_duo.png" alt="Flow tracks over the tissue surface across the episode." width="1400" height="992" decoding="async" loading="lazy">
+        <figcaption><b>Flow tracks.</b> Per-query-point trajectories accumulated over the episode.</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="static/images/exvivo_cloud_tracks.png" alt="Query point tracks rendered in the reconstructed 3D point cloud." width="1400" height="992" decoding="async" loading="lazy">
+        <figcaption><b>In 3D.</b> The same tracks lifted into the reconstructed point cloud.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================== GRASP LOCATION -->
+<section id="grasping">
+  <div class="wrap">
+    <h2>Where to grasp</h2>
+    <p class="section-note">The contact channel predicts a grasp location; flow magnitude alone does not.</p>
+    <figure class="plate wide">
+      <div class="scroller"><img src="static/images/grasping_location.png" alt="Comparison of predicted grasp locations: maximum-flow baseline versus the contact field." width="1800" height="1641" decoding="async" loading="lazy"></div>
+      <p class="hint">Scroll the figure sideways to read the detail &rarr;</p>
+      <figcaption><b>Contact field vs. maximum-flow heuristic.</b> Picking the point that moves most is not the point you should hold &mdash; the tissue moves most where it is free, and must be gripped where it is anchored. <span class="todo">TODO</span> add the quantitative grasp-location error alongside this figure.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================ SETUP -->
+<section id="setup">
+  <div class="wrap">
+    <h2>Experimental platforms</h2>
+    <p class="section-note">One representation, two execution embodiments.</p>
+    <figure class="plate wide">
+      <div class="scroller"><img src="static/images/setup.png" alt="The two robot platforms: a da Vinci Research Kit and a humanoid laparoscopic setup." width="1800" height="946" decoding="async" loading="lazy"></div>
+      <p class="hint">Scroll the figure sideways to read the detail &rarr;</p>
+      <figcaption><b>Platforms.</b> A da Vinci Research Kit and a humanoid laparoscopic platform execute the same predicted contact-coupled flow, with no force sensing on either.</figcaption>
+    </figure>
+    <figure class="plate wide" style="margin-top:18px">
+      <div class="scroller"><img src="static/images/needle_handover_exp.png" alt="Needle handover experiment sequence." width="2000" height="898" decoding="async" loading="lazy"></div>
+      <p class="hint">Scroll the figure sideways to read the detail &rarr;</p>
+      <figcaption><b>Needle handover.</b> A bimanual sequence in which the contact channel must hand off between instruments.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================================================== QUANTITATIVE -->
+<section id="quantitative">
+  <div class="wrap">
+    <h2>Quantitative results</h2>
+    <p class="section-note">Numbers below are placeholders.</p>
+
+    <div class="callout">
+      <p><b>Fill these in from the final experiment runs.</b> Every cell marked <span class="todo">&mdash;</span> is a placeholder. Keep the row order (baselines first, ours last) and the <code>ours</code> class on the final row so the highlight lands correctly.</p>
+    </div>
+
+    <h3>Flow prediction</h3>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Method</th><th>ADE (mm)</th><th>FDE (mm)</th><th>Contact AUPRC</th><th>Grasp err. (mm)</th></tr>
+        </thead>
+        <tbody>
+          <!-- TODO: replace every em-dash with the measured value. -->
+          <tr><td>Zero-motion</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr><td>DP3</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr><td>Object flow only (no contact)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr class="ours"><td>SurgFlowX (ours)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Execution success</h3>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Platform</th><th>Task</th><th>Success</th><th>Slip recoveries</th></tr>
+        </thead>
+        <tbody>
+          <!-- TODO: fill from the dVRK and humanoid execution runs. -->
+          <tr><td>dVRK</td><td>Tissue retraction</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr><td>Humanoid laparoscopic</td><td>Tissue retraction</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr class="ours"><td>Human video &rarr; robot (zero-shot)</td><td>Tissue retraction</td><td>&mdash;</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== BIBTEX -->
+<section id="bibtex">
+  <div class="wrap narrow">
+    <h2>BibTeX</h2>
+    <p class="section-note"><span class="todo">TODO</span> &nbsp;Replace once the paper has a venue and a number.</p>
+<pre class="bibtex">@inproceedings{surgflowx,
+  title     = {SurgFlowX: Contact-Coupled Flow for Deformable Surgical Manipulation},
+  author    = {Anonymous},
+  booktitle = {Under review},
+  year      = {2027}
+}</pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Page withheld of identifying information pending review.</p>
+    <p>Website source released with the code.</p>
+  </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>
