@@ -203,72 +203,6 @@ figcaption {
 
 figcaption b { color: var(--text); font-weight: 600; }
 
-/* ----------------------------------------------------------------- video */
-
-.vgrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-
-/* Two up on anything wider than a phone: keeps the four result clips a clean
-   2x2 instead of 3 + an orphan. */
-@media (min-width: 720px) {
-  .vgrid { grid-template-columns: 1fr 1fr; }
-}
-
-.vcard {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.vcard video { width: 100%; background: #000; }
-
-.vcard .vmeta { padding: 12px 15px 14px; }
-
-.vcard .vlabel {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin: 0 0 3px;
-}
-
-.vlabel.contact { color: var(--ember); }
-.vlabel.flow    { color: var(--cool); }
-
-.vcard p { font-size: 14px; color: var(--text-soft); margin: 0; line-height: 1.5; }
-
-/* ----------------------------------------------------------------- table */
-
-.tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-  font-variant-numeric: tabular-nums;
-  min-width: 520px;
-}
-
-th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--border); }
-th:first-child, td:first-child { text-align: left; }
-
-thead th {
-  font-size: 12px;
-  font-weight: 650;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  border-bottom: 1.5px solid var(--border);
-}
-
-tbody tr.ours { background: var(--ember-dim); }
-tbody tr.ours td:first-child { font-weight: 650; }
-tbody tr:last-child td { border-bottom: 0; }
-
 /* ------------------------------------------------------------ todo badge */
 
 .todo {
@@ -283,19 +217,6 @@ tbody tr:last-child td { border-bottom: 0; }
   font-weight: 600;
   letter-spacing: .02em;
 }
-
-.callout {
-  border-left: 3px solid var(--ember);
-  background: var(--ember-dim);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 14px 18px;
-  font-size: 14.5px;
-  color: var(--text-soft);
-  margin: 0 0 26px;
-}
-
-.callout b { color: var(--text); }
-.callout :last-child { margin-bottom: 0; }
 
 /* ---------------------------------------------------------------- bibtex */
 
@@ -336,9 +257,8 @@ footer p { margin: 0 0 6px; }
 /* Paper figures carry their own white background; back them with white so they
    read as printed plates in dark mode rather than glowing rectangles. */
 @media (prefers-color-scheme: dark) {
-  figure.plate img, .vcard video { background: #fff; }
+  figure.plate img { background: #fff; }
 }
-
 
 /* Wide paper figures shrink to an illegible strip on a phone. Let them keep a
    readable width and pan horizontally instead. */
