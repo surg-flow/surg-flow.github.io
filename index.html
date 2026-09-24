@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SurgFlow — 3D Object-Centric Contact Flow for Surgical Manipulation</title>
-<meta name="description" content="SurgFlow learns 3D object-centric contact flow — where to act and how the object should move — from action-free surgical video, and executes it across robot embodiments.">
+<meta name="description" content="SurgFlow learns 3D Object-Centric Contact Flow from stereo surgical video without robot action labels, and transfers zero-shot across robot platforms.">
 
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="https://surg-flow.github.io/">
 <meta property="og:title"       content="SurgFlow — 3D Object-Centric Contact Flow for Surgical Manipulation">
-<meta property="og:description" content="Manipulation intent is where you act and how the object should move. SurgFlow learns both from action-free surgical video.">
+<meta property="og:description" content="Learning 3D Object-Centric Contact Flow from stereo surgical video without robot action labels. 37/39 stage evaluations on the dVRK, zero-shot transfer to LapSurgie.">
 <meta property="og:image"       content="https://surg-flow.github.io/static/images/method.png">
 <meta name="twitter:card"       content="summary_large_image">
 
@@ -26,8 +26,6 @@
     <p class="eyebrow">Anonymous submission &middot; under review</p>
 
     <h1 class="title"><span class="brand">SurgFlow</span>: 3D Object-Centric Contact Flow<br>for Surgical Manipulation</h1>
-
-    <p class="subtitle">Manipulation intent is <em>where</em> you act and <em>how</em> the object should move &mdash; a pair that belongs to the task, not to the arm performing it.</p>
 
     <!-- TODO (post-acceptance): replace with author list + affiliations. -->
     <p class="authors">Anonymous Authors</p>
@@ -55,13 +53,13 @@
 <section id="abstract">
   <div class="wrap narrow">
     <h2>Abstract</h2>
-    <p class="section-note"><span class="todo">DRAFT</span> &nbsp;Replace with the final camera-ready abstract.</p>
 
-    <p class="lead">Manipulation intent has two parts: <em>where</em> to act on an object, and <em>how</em> that object should move. We represent both as <b>3D object-centric contact flow</b> &mdash; a dense 3D flow field over object query points, paired with a probabilistic contact field defined on the same points. Unlike tool trajectories or robot joint actions, this pair is embodiment-invariant: it describes the task rather than the arm that performs it.</p>
+    <p class="lead">Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce by construction: robots perform roughly 1% of the world's surgeries, while video-only data is orders of magnitude more abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize the abundant video data, but flow alone specifies <em>how</em> an object should move, not <em>where</em> and <em>when</em> the tool should engage it, a distinction that is critical in surgery.</p>
 
-    <p>We extract contact flow from <b>action-free surgical video</b> using a training-free estimator that combines motion coupling, engagement gating and distance shading over tracked query points. It uses no force sensing and no proprioception, and is grounded per embodiment by two landmarks only &mdash; forceps jaws for a surgical robot, thumb and index finger for a human demonstrator.</p>
+    <p>We introduce <b>SurgFlow</b>, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without robot action labels. For each object point, the representation pairs a future 3D trajectory with a contact score, jointly encoding object motion and the tool contact required to produce it. We extract these targets from video by 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and control different robot platforms using predicted contact to determine grasp and release commands while computing end effector action from the predicted object flow through optimization.</p>
 
-    <p>A generator predicts future contact flow from a single point-cloud observation, and a model-based executor follows it: it grasps at the contact maximum and servos along the predicted flow with receding-horizon re-prediction, monitoring its own contact belief to detect slip and recover from it. We evaluate on a da Vinci Research Kit and on a humanoid laparoscopic platform, including transfer from human video alone.</p>
+    <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and needle handover, outperforming baselines trained on the same amount of data with or without action labels. The autonomous behavior transfers zero-shot to the new Humanoid-robot-based Laparoscopic Robot (LapSurgie) platform without adaptations, reaching average accuracies of 85% and 70% respectively in similar and completely novel view test cases.</p>
+
   </div>
 </section>
 

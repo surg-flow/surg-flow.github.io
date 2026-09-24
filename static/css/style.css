@@ -84,21 +84,11 @@ h1.title {
   line-height: 1.14;
   font-weight: 600;
   letter-spacing: -0.015em;
-  margin: 0 0 14px;
+  margin: 0 0 28px;
   text-wrap: balance;
 }
 
 h1.title .brand { color: var(--ember); }
-
-p.subtitle {
-  font-family: var(--serif);
-  font-size: clamp(17px, 2.3vw, 22px);
-  line-height: 1.45;
-  color: var(--text-soft);
-  margin: 0 auto 30px;
-  max-width: 44ch;
-  text-wrap: balance;
-}
 
 .authors {
   font-size: 16px;
