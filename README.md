@@ -1,4 +1,4 @@
-# surgflow.github.io
+# surg-flow.github.io
 
 Project page for **SurgFlow: 3D Object-Centric Contact Flow for Surgical Manipulation**.
 
@@ -31,7 +31,6 @@ each marker sits next to what it is waiting for:
 - [ ] paper / arXiv / code / dataset links (remove `aria-disabled="true"`)
 - [ ] final abstract
 - [ ] BibTeX entry
-- [ ] absolute `og:url`
 
 Visible `TODO` badges are styled `.todo` in the stylesheet — deleting that rule
 is a quick way to spot any you missed.
@@ -39,5 +38,5 @@ is a quick way to spot any you missed.
 ## If a printed QR code points here
 
 The URL is what gets printed, so the page content stays editable forever — but
-the URL must not move. Keep the org named `surgflow`, and keep the repo public:
+the URL must not move. Keep the org named `surg-flow`, and keep the repo public:
 making it private stops GitHub Pages serving and the printed code dies.
