@@ -55,5 +55,16 @@ if [ "${WITH_VIDEOS:-0}" = "1" ]; then
   enc "$GIF/needle_contact_flow.gif"              needle_flow "1172:781:28:69"  0xF4F3F6
   enc "$GIF/tissue_reveal_surgflow_clip2_low.gif" tissue_exec ""                black
   enc "$GIF/needle_exp3_contactflow.gif"          needle_exec ""                black
+
+  # The LapSurgie clip is a portrait framing (800x1422). It keeps its own 4:5
+  # ratio instead of 65% black bars on the shared landscape canvas, so it does
+  # not go through enc().
+  ffmpeg -nostdin -v error -y -i "$GIF/lapsurgie_tissue_reveal.gif" \
+    -vf "crop=800:1000:0:422,scale=640:800:flags=lanczos,fps=15" \
+    -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 26 -preset slow \
+    -movflags +faststart -an "$SITE/static/videos/lapsurgie_exec.mp4"
+  ffmpeg -nostdin -v error -y -i "$GIF/lapsurgie_tissue_reveal.gif" \
+    -vf "crop=800:1000:0:422,scale=640:800:flags=lanczos,select=eq(n\,40)" \
+    -vframes 1 -q:v 4 "$SITE/static/videos/lapsurgie_exec.jpg"
   echo "demo clips rebuilt -> $(du -sh "$SITE/static/videos" | cut -f1)"
 fi
