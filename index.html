@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SurgFlow — 3D Object-Centric Contact Flow for Surgical Manipulation</title>
-<meta name="description" content="SurgFlow learns 3D Object-Centric Contact Flow from stereo surgical video without robot action labels, and transfers zero-shot across robot platforms.">
+<title>SurgFlow — 3D Object-Centric Contact Flow for Surgical Robot Manipulation</title>
+<meta name="description" content="SurgFlow learns 3D Object-Centric Contact Flow from stereo surgical video without action labels: 37 of 39 stage evaluations on the dVRK, zero-shot transfer to a humanoid-based laparoscopic robot.">
 
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="https://surg-flow.github.io/">
-<meta property="og:title"       content="SurgFlow — 3D Object-Centric Contact Flow for Surgical Manipulation">
+<meta property="og:title"       content="SurgFlow — 3D Object-Centric Contact Flow for Surgical Robot Manipulation">
 <meta property="og:description" content="Learning 3D Object-Centric Contact Flow from stereo surgical video without robot action labels. 37/39 stage evaluations on the dVRK, zero-shot transfer to LapSurgie.">
 <meta property="og:image"       content="https://surg-flow.github.io/static/images/method.png">
 <meta name="twitter:card"       content="summary_large_image">
@@ -23,28 +23,25 @@
 <!-- ============================================================== HERO -->
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Anonymous submission &middot; under review</p>
+    <p class="eyebrow">Under review</p>
 
-    <h1 class="title"><span class="brand">SurgFlow</span>: 3D Object-Centric Contact Flow<br>for Surgical Manipulation</h1>
+    <h1 class="title"><span class="brand">SurgFlow</span>: 3D Object-Centric Contact Flow<br>for Surgical Robot Manipulation</h1>
 
-    <!-- TODO (post-acceptance): replace with author list + affiliations. -->
-    <p class="authors">Anonymous Authors</p>
-    <p class="venue">Paper under review. Author names, affiliations and links are withheld for double-blind review.</p>
+    <p class="authors">Changwei Chen &middot; Xiao Liang &middot; Yinuo Yang &middot; Nicole Shen &middot; Peihan Zhang<br>Sara Wickenhiser &middot; Zekai Liang &middot; Soofiyan Atar &middot; Michael Yip</p>
+    <p class="affil">Department of Electrical and Computer Engineering, University of California San Diego</p>
 
     <ul class="linkbar">
-      <!-- TODO: drop aria-disabled and set a real href as each link becomes available. -->
-      <li><a href="#" aria-disabled="true" title="Available after review">
+      <li><a href="static/paper/SurgFlow.pdf" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
         Paper</a></li>
-      <li><a href="#" aria-disabled="true" title="Available after review">
+      <!-- TODO: set href and drop aria-disabled + the soon tag once the preprint is up. -->
+      <li><a href="#" aria-disabled="true" title="Coming soon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        arXiv</a></li>
-      <li><a href="#" aria-disabled="true" title="Released on publication">
+        arXiv <span class="soon">soon</span></a></li>
+      <!-- TODO: set href and drop aria-disabled + the soon tag on code release. -->
+      <li><a href="#" aria-disabled="true" title="Coming soon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
-        Code</a></li>
-      <li><a href="#" aria-disabled="true" title="Released on publication">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
-        Dataset</a></li>
+        Code <span class="soon">soon</span></a></li>
     </ul>
   </div>
 </header>
@@ -54,11 +51,11 @@
   <div class="wrap narrow">
     <h2>Abstract</h2>
 
-    <p class="lead">Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce by construction: robots perform roughly 1% of the world's surgeries, while video-only data is orders of magnitude more abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize the abundant video data, but flow alone specifies <em>how</em> an object should move, not <em>where</em> and <em>when</em> the tool should engage it, a distinction that is critical in surgery.</p>
+    <p class="lead">Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce: robots perform roughly 1% of surgeries, while video-only data is abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize video data, but flow alone specifies how an object should move, not where and when the tool should engage it, a distinction that is critical in surgery.</p>
 
-    <p>We introduce <b>SurgFlow</b>, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without robot action labels. For each object point, the representation pairs a future 3D trajectory with a contact score, jointly encoding object motion and the tool contact required to produce it. We extract these targets from video by 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and control different robot platforms using predicted contact to determine grasp and release commands while computing end effector action from the predicted object flow through optimization.</p>
+    <p>We introduce SurgFlow, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without action labels. For each object point, it predicts a future 3D trajectory and contact scores. We extract targets via 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and use predicted contact to trigger grasp and release while optimizing end effector motion from flow.</p>
 
-    <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and needle handover, outperforming baselines trained on the same amount of data with or without action labels. The autonomous behavior transfers zero-shot to the new Humanoid-robot-based Laparoscopic Robot (LapSurgie) platform without adaptations, reaching average accuracies of 85% and 70% respectively in similar and completely novel view test cases.</p>
+    <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and handover, outperforming baselines trained on equal data with or without action labels. Zero-shot transfer to a humanoid-based laparoscopic robot achieves 85% and 70% average success under similar and novel camera viewpoints, respectively.</p>
 
   </div>
 </section>
@@ -95,19 +92,15 @@
 <section id="bibtex">
   <div class="wrap narrow">
     <h2>BibTeX</h2>
-    <p class="section-note"><span class="todo">TODO</span> &nbsp;Replace once the paper has a venue and a number.</p>
-<pre class="bibtex">@inproceedings{surgflow,
-  title     = {SurgFlow: 3D Object-Centric Contact Flow for Surgical Manipulation},
-  author    = {Anonymous},
-  booktitle = {Under review},
-  year      = {2027}
-}</pre>
+    <!-- TODO: replace with the real entry once the paper has a venue. -->
+    <p class="section-note">Coming soon &mdash; the citation will be posted when the paper is published.</p>
+
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>Page withheld of identifying information pending review.</p>
+    <p>University of California San Diego</p>
     <p>Website source released with the code.</p>
   </div>
 </footer>

@@ -1,6 +1,8 @@
 # surg-flow.github.io
 
-Project page for **SurgFlow: 3D Object-Centric Contact Flow for Surgical Manipulation**.
+Project page for **SurgFlow: 3D Object-Centric Contact Flow for Surgical Robot Manipulation**.
+
+Live at <https://surg-flow.github.io/>.
 
 Static HTML — no build step, no dependencies, no JavaScript. GitHub Pages serves it as-is.
 
@@ -8,13 +10,14 @@ Static HTML — no build step, no dependencies, no JavaScript. GitHub Pages serv
 index.html              the whole page
 static/css/style.css    styling (light + dark, responsive)
 static/images/          the two figures, rendered from the paper PDFs
+static/paper/           the paper PDF the Paper button links to
 .nojekyll               serve static files verbatim
 tools/build_assets.sh   re-render the figures from website/figures/*.pdf
 ```
 
-Deliberately minimal: hero, abstract, method figure, execution figure, BibTeX.
-Result videos, the teaser, the platform figure and the results tables were all
-removed in favour of a clean page — they are in the git history if wanted back.
+Deliberately minimal: hero, abstract, method figure, execution figure. Result
+videos, the teaser, the platform figure and the results tables were removed in
+favour of a clean page — they are in the git history if wanted back.
 
 ## Preview locally
 
@@ -22,18 +25,23 @@ removed in favour of a clean page — they are in the git history if wanted back
 python3 -m http.server -d . 8000   # then open http://localhost:8000
 ```
 
-## Before it goes public
+## Still to fill in
 
-The page is anonymous for double-blind review. Search `index.html` for `TODO` —
-each marker sits next to what it is waiting for:
+Search `index.html` for `TODO`:
 
-- [ ] author list + affiliations (hero)
-- [ ] paper / arXiv / code / dataset links (remove `aria-disabled="true"`)
-- [ ] final abstract
-- [ ] BibTeX entry
+- [ ] arXiv link (currently a disabled "soon" pill)
+- [ ] code link (same)
+- [ ] BibTeX entry, once the paper has a venue
 
-Visible `TODO` badges are styled `.todo` in the stylesheet — deleting that rule
-is a quick way to spot any you missed.
+## Updating
+
+```bash
+# edit, then
+git commit -am "..." && git push
+```
+
+Live about a minute later. To refresh the figures, replace the PDFs in
+`surgflowx/website/figures/` and run `./tools/build_assets.sh`.
 
 ## If a printed QR code points here
 
