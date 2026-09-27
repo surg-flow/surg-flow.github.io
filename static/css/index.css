@@ -1,0 +1,165 @@
+/* SurgFlow project page — customizations on top of Bulma.
+   Layout and type follow the Nerfies academic project-page template. */
+
+body {
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+/* ------------------------------------------------------------------ nav */
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.navbar-item {
+  font-weight: 500;
+}
+
+.navbar-brand .navbar-item {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- hero */
+
+.hero {
+  background: #fff;
+  color: #2c3e50;
+}
+
+.publication-title {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: #2c3e50 !important;
+  text-shadow: none;
+}
+
+.publication-conference {
+  color: #7f8c8d;
+  font-weight: 600;
+}
+
+.publication-links {
+  margin-top: 2rem;
+}
+
+.link-block {
+  display: inline-block;
+  margin: .5rem;
+}
+
+.link-block a {
+  transition: all .3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.link-block a:hover {
+  transform: translateY(-1px);
+}
+
+/* links that do not exist yet */
+.link-block a.is-soon {
+  opacity: .55;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.soon-tag {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-left: .5rem;
+}
+
+/* ------------------------------------------------------------ sections */
+
+.section .title.is-3 {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* alternating bands, as on the reference page */
+.section.is-tinted {
+  background: #f5f5f7;
+}
+
+.content p {
+  margin-bottom: 1rem;
+}
+
+/* ------------------------------------------------------------- figures */
+
+.figure-plate {
+  background: #fff;
+  border: 1px solid #e8e8ec;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.figure-plate img {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.figure-caption {
+  color: #7f8c8d;
+  font-size: .9rem;
+  line-height: 1.55;
+  margin-top: .9rem;
+  text-align: left;
+}
+
+.figure-caption b {
+  color: #2c3e50;
+}
+
+/* Wide paper figures shrink to an illegible strip on a phone; let them keep a
+   readable width and pan horizontally instead. */
+.figure-scroller {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 3px;
+}
+
+.figure-hint {
+  display: none;
+  font-size: .75rem;
+  color: #9aa0a6;
+  margin-top: .6rem;
+}
+
+@media (max-width: 768px) {
+  .figure-scroller img { width: 680px; max-width: none; }
+  .figure-hint { display: block; }
+}
+
+/* -------------------------------------------------------------- footer */
+
+.footer {
+  background: #fafafa;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.footer .content {
+  color: #7f8c8d;
+  font-size: .85rem;
+}
+
+.footer a {
+  color: #3498db;
+}
+
+/* Bulma's is-1 title fills the whole first screen on a phone. */
+@media (max-width: 768px) {
+  .publication-title { font-size: 2rem !important; line-height: 1.2; }
+  .hero-body { padding: 2.5rem 1.25rem; }
+  .content.has-text-justified { text-align: left !important; }
+}

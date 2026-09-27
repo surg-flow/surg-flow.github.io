@@ -2,103 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SurgFlow — 3D Object-Centric Contact Flow for Surgical Robot Manipulation</title>
 <meta name="description" content="SurgFlow learns 3D Object-Centric Contact Flow from stereo surgical video without action labels: 37 of 39 stage evaluations on the dVRK, zero-shot transfer to a humanoid-based laparoscopic robot.">
 
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="https://surg-flow.github.io/">
 <meta property="og:title"       content="SurgFlow — 3D Object-Centric Contact Flow for Surgical Robot Manipulation">
-<meta property="og:description" content="Learning 3D Object-Centric Contact Flow from stereo surgical video without robot action labels. 37/39 stage evaluations on the dVRK, zero-shot transfer to LapSurgie.">
+<meta property="og:description" content="Learning 3D Object-Centric Contact Flow from stereo surgical video without action labels. 37/39 stage evaluations on the dVRK, zero-shot transfer to LapSurgie.">
 <meta property="og:image"       content="https://surg-flow.github.io/static/images/method.png">
 <meta name="twitter:card"       content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="static/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
 
+<!-- =============================================================== NAV -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">SurgFlow</a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#execution">Execution</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
 <!-- ============================================================== HERO -->
-<header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Under review</p>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
 
-    <h1 class="title"><span class="brand">SurgFlow</span>: 3D Object-Centric Contact Flow<br>for Surgical Robot Manipulation</h1>
+          <h1 class="title is-1 publication-title">SurgFlow: 3D Object-Centric Contact Flow for Surgical Robot Manipulation</h1>
 
+          <div class="is-size-5 publication-authors">
+            <span class="publication-conference">Under review</span>
+          </div>
 
-    <ul class="linkbar">
-      <li><a href="static/paper/SurgFlow.pdf" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        Paper</a></li>
-      <!-- TODO: set href and drop aria-disabled + the soon tag once the preprint is up. -->
-      <li><a href="#" aria-disabled="true" title="Coming soon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        arXiv <span class="soon">soon</span></a></li>
-      <!-- TODO: set href and drop aria-disabled + the soon tag on code release. -->
-      <li><a href="#" aria-disabled="true" title="Coming soon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
-        Code <span class="soon">soon</span></a></li>
-    </ul>
-  </div>
-</header>
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="./static/paper/SurgFlow.pdf" target="_blank" rel="noopener"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
 
-<!-- ========================================================= ABSTRACT -->
-<section id="abstract">
-  <div class="wrap narrow">
-    <h2>Abstract</h2>
+            <!-- TODO: set href and drop is-soon + the tag once the preprint is up. -->
+            <span class="link-block">
+              <a class="external-link button is-normal is-rounded is-dark is-soon" aria-disabled="true">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </span>
+                <span>arXiv</span><span class="soon-tag">soon</span>
+              </a>
+            </span>
 
-    <p class="lead">Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce: robots perform roughly 1% of surgeries, while video-only data is abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize video data, but flow alone specifies how an object should move, not where and when the tool should engage it, a distinction that is critical in surgery.</p>
+            <!-- TODO: set href and drop is-soon + the tag on code release. -->
+            <span class="link-block">
+              <a class="external-link button is-normal is-rounded is-dark is-soon" aria-disabled="true">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+                </span>
+                <span>Code</span><span class="soon-tag">soon</span>
+              </a>
+            </span>
+          </div>
 
-    <p>We introduce SurgFlow, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without action labels. For each object point, it predicts a future 3D trajectory and contact scores. We extract targets via 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and use predicted contact to trigger grasp and release while optimizing end effector motion from flow.</p>
-
-    <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and handover, outperforming baselines trained on equal data with or without action labels. Zero-shot transfer to a humanoid-based laparoscopic robot achieves 85% and 70% average success under similar and novel camera viewpoints, respectively.</p>
-
-  </div>
-</section>
-
-<!-- =========================================================== METHOD -->
-<section id="method">
-  <div class="wrap">
-    <h2>Method</h2>
-    <p class="section-note">From action-free video to a robot-executable representation.</p>
-
-    <figure class="plate wide">
-      <div class="scroller"><img src="static/images/method.png" alt="The SurgFlow pipeline: contact flow extraction from surgical video, a contact flow generator, and an action optimizer." width="2200" height="823" decoding="async"></div>
-      <p class="hint">Scroll the figure sideways to read the detail &rarr;</p>
-      <figcaption><b>The SurgFlow pipeline.</b> <b>(a)</b> Surgical video is segmented and tracked into 3D object-centric contact flow, with no action labels and no force sensing. <b>(b)</b> A generator learns to predict future contact flow for a set of query points from a single point-cloud observation. <b>(c)</b> An action optimizer turns that prediction into robot motion &mdash; grasping where contact is highest and servoing along the predicted flow.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ======================================================== EXECUTION -->
-<section id="execution">
-  <div class="wrap">
-    <h2>Execution</h2>
-    <p class="section-note">Predicted contact flow, replanned and executed on the robot.</p>
-
-    <figure class="plate wide">
-      <div class="scroller"><img src="static/images/needle_handover.png" alt="Needle handover in four stages: initial grasp, reorientation, right grasp and left release, each predicted as contact flow and executed on the robot." width="2000" height="896" decoding="async" loading="lazy"></div>
-      <p class="hint">Scroll the figure sideways to read the detail &rarr;</p>
-      <figcaption><b>Needle handover.</b> The predicted contact flow (top) drives robot execution (bottom) through four stages, re-predicting after each one. Contact is established at the grasp location, maintained through reorientation, then transferred &mdash; the right instrument's contact rises before the left's fades, so the needle is never unheld. The handover is never specified as a sequence of poses; it falls out of where contact is predicted to be.</figcaption>
-    </figure>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- =========================================================== BIBTEX -->
-<section id="bibtex">
-  <div class="wrap narrow">
-    <h2>BibTeX</h2>
-    <!-- TODO: replace with the real entry once the paper has a venue. -->
-    <p class="section-note">Coming soon &mdash; the citation will be posted when the paper is published.</p>
-
+<!-- ========================================================== ABSTRACT -->
+<section class="section is-tinted" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce: robots perform roughly 1% of surgeries, while video-only data is abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize video data, but flow alone specifies how an object should move, not where and when the tool should engage it, a distinction that is critical in surgery.</p>
+          <p>We introduce SurgFlow, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without action labels. For each object point, it predicts a future 3D trajectory and contact scores. We extract targets via 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and use predicted contact to trigger grasp and release while optimizing end effector motion from flow.</p>
+          <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and handover, outperforming baselines trained on equal data with or without action labels. Zero-shot transfer to a humanoid-based laparoscopic robot achieves 85% and 70% average success under similar and novel camera viewpoints, respectively.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <p>Website source released with the code.</p>
+<!-- ============================================================ METHOD -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Method</h2>
+        <div class="figure-plate">
+          <div class="figure-scroller">
+            <img src="./static/images/method.png" width="2200" height="823" decoding="async"
+                 alt="The SurgFlow pipeline: contact flow extraction from surgical video, a contact flow generator, and an action optimizer.">
+          </div>
+          <p class="figure-hint">Scroll the figure sideways to read the detail &rarr;</p>
+          <p class="figure-caption"><b>The SurgFlow pipeline.</b> <b>(a)</b> Surgical video is segmented and tracked into 3D object-centric contact flow, with no action labels and no force sensing. <b>(b)</b> A generator learns to predict future contact flow for a set of query points from a single point-cloud observation. <b>(c)</b> An action optimizer turns that prediction into robot motion &mdash; grasping where contact is highest and servoing along the predicted flow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= EXECUTION -->
+<section class="section is-tinted" id="execution">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Execution</h2>
+        <div class="figure-plate">
+          <div class="figure-scroller">
+            <img src="./static/images/needle_handover.png" width="2000" height="896" decoding="async" loading="lazy"
+                 alt="Needle handover in four stages: initial grasp, reorientation, right grasp and left release, each predicted as contact flow and executed on the robot.">
+          </div>
+          <p class="figure-hint">Scroll the figure sideways to read the detail &rarr;</p>
+          <p class="figure-caption"><b>Needle handover.</b> The predicted contact flow (top) drives robot execution (bottom) through four stages, re-predicting after each one. Contact is established at the grasp location, maintained through reorientation, then transferred &mdash; the right instrument's contact rises before the left's fades, so the needle is never unheld. The handover is never specified as a sequence of poses; it falls out of where contact is predicted to be.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BIBTEX -->
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">BibTeX</h2>
+        <!-- TODO: replace with the real entry once the paper has a venue. -->
+        <div class="content">
+          <p class="publication-conference">Coming soon &mdash; the citation will be posted when the paper is published.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="content">
+          <p>Website source released with the code.</p>
+          <p>This page uses the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project-page template, licensed under
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
