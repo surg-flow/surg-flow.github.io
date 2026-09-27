@@ -171,6 +171,8 @@ body {
   margin: -.5rem 0 2rem;
 }
 
+#demo .columns { align-items: stretch; }
+
 .demo-task {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-size: 1.15rem;
@@ -188,22 +190,29 @@ body {
   border-radius: 6px;
   overflow: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
 }
 
+/* Every clip is encoded to the same 960x600 canvas (margins cropped, then
+   padded), so the two halves of a row line up by construction rather than by
+   CSS fitting. */
 .demo-card video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: contain;   /* the sources differ in aspect; never crop the data */
 }
 
-/* letterbox in each clip's own background colour so the bars are invisible */
-.demo-card video.is-flow { background: #fff; }
+/* only shows in the instant before the poster paints */
+.demo-card video.is-flow { background: #f4f3f6; }
 .demo-card video.is-exec { background: #000; }
 
 .demo-meta {
   padding: .8rem 1rem 1rem;
   text-align: left;
+  border-top: 1px solid #f0f0f3;
+  flex: 1;
 }
 
 .demo-label {
