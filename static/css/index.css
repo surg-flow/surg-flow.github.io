@@ -255,20 +255,19 @@ body {
   padding: 1rem;
 }
 
-/* The setup figure is 2.05:1 and the clip is 0.8:1. Matching them by column
-   width would leave one half the height of the other, so they are matched by
-   HEIGHT instead and each takes the width its aspect needs. */
+/* Equal halves. The figure is 2.05:1 and the clip 0.8:1, so at the same width
+   the clip is much the taller of the two; the figure is centred against it. */
 .setup-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   align-items: center;
-  justify-content: center;
 }
 
 .setup-row > * {
-  height: min(310px, 32vw);
-  width: auto;
   display: block;
+  width: 100%;
+  height: auto;
   border-radius: 3px;
 }
 
@@ -285,7 +284,6 @@ body {
 .setup-caption b { color: #2c3e50; }
 
 @media (max-width: 768px) {
-  .setup-row { flex-direction: column; gap: .75rem; }
-  .setup-row > * { height: auto; width: 100%; }
-  .setup-clip { width: 70% !important; margin: 0 auto; }
+  .setup-row { grid-template-columns: 1fr; gap: .75rem; }
+  .setup-clip { width: 72%; margin: 0 auto; }
 }
