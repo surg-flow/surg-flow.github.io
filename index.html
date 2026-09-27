@@ -28,6 +28,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start">
+      <a class="navbar-item" href="#demo">Demo</a>
       <a class="navbar-item" href="#abstract">Abstract</a>
       <a class="navbar-item" href="#method">Method</a>
       <a class="navbar-item" href="#execution">Execution</a>
@@ -87,8 +88,69 @@
   </div>
 </section>
 
+<!-- ============================================================== DEMO -->
+<section class="section is-tinted" id="demo">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Demo</h2>
+        <p class="demo-lead">Contact flow predicted from video, and the robot behavior it produces. Nothing below uses action labels.</p>
+
+        <h3 class="demo-task">Tissue reveal</h3>
+        <div class="columns">
+          <div class="column is-half">
+            <div class="demo-card">
+              <video class="is-flow" data-src="./static/videos/tissue_flow.mp4" poster="./static/videos/tissue_flow.jpg"
+                     muted loop playsinline preload="none"></video>
+              <div class="demo-meta">
+                <p class="demo-label is-flow">Predicted contact flow</p>
+                <p class="demo-sub">Flow and contact over tissue query points, predicted from a single observation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="demo-card">
+              <video class="is-exec" data-src="./static/videos/tissue_exec.mp4" poster="./static/videos/tissue_exec.jpg"
+                     muted loop playsinline preload="none"></video>
+              <div class="demo-meta">
+                <p class="demo-label is-exec">Robot execution</p>
+                <p class="demo-sub">The dVRK grasping and retracting ex-vivo tissue from that prediction.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="demo-task">Needle handover</h3>
+        <div class="columns">
+          <div class="column is-half">
+            <div class="demo-card">
+              <video class="is-flow" data-src="./static/videos/needle_flow.mp4" poster="./static/videos/needle_flow.jpg"
+                     muted loop playsinline preload="none"></video>
+              <div class="demo-meta">
+                <p class="demo-label is-flow">Predicted contact flow</p>
+                <p class="demo-sub">Contact transfers between instruments as the needle changes hands.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="demo-card">
+              <video class="is-exec" data-src="./static/videos/needle_exec.mp4" poster="./static/videos/needle_exec.jpg"
+                     muted loop playsinline preload="none"></video>
+              <div class="demo-meta">
+                <p class="demo-label is-exec">Robot execution</p>
+                <p class="demo-sub">The bimanual handover carried out on the dVRK.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ========================================================== ABSTRACT -->
-<section class="section is-tinted" id="abstract">
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -104,7 +166,7 @@
 </section>
 
 <!-- ============================================================ METHOD -->
-<section class="section" id="method">
+<section class="section is-tinted" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
@@ -123,7 +185,7 @@
 </section>
 
 <!-- ========================================================= EXECUTION -->
-<section class="section is-tinted" id="execution">
+<section class="section" id="execution">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
@@ -142,7 +204,7 @@
 </section>
 
 <!-- ============================================================ BIBTEX -->
-<section class="section" id="bibtex">
+<section class="section is-tinted" id="bibtex">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -170,5 +232,6 @@
   </div>
 </footer>
 
+<script src="./static/js/main.js"></script>
 </body>
 </html>

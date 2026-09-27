@@ -10,14 +10,19 @@ Static HTML — no build step, no dependencies, no JavaScript. GitHub Pages serv
 index.html              the whole page
 static/css/style.css    styling (light + dark, responsive)
 static/images/          the two figures, rendered from the paper PDFs
+static/videos/          demo clips (h264) + poster frames
+static/js/main.js       lazy-loads the demo clips on scroll
 static/paper/           the paper PDF the Paper button links to
 .nojekyll               serve static files verbatim
 tools/build_assets.sh   re-render the figures from website/figures/*.pdf
 ```
 
-Deliberately minimal: hero, abstract, method figure, execution figure. Result
-videos, the teaser, the platform figure and the results tables were removed in
-favour of a clean page — they are in the git history if wanted back.
+Sections: hero, demo, abstract, method figure, execution figure, BibTeX.
+Styled on the Nerfies project-page template (Bulma, vendored locally).
+
+Demo clips are re-encoded from `surgflowx/website/video_gif/*.gif` — 32 MB of
+GIF down to 3.1 MB of h264. Regenerate with the `enc` recipe in
+`tools/build_assets.sh`.
 
 ## Preview locally
 

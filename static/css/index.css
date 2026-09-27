@@ -163,3 +163,63 @@ body {
   .hero-body { padding: 2.5rem 1.25rem; }
   .content.has-text-justified { text-align: left !important; }
 }
+
+/* ---------------------------------------------------------------- demo */
+
+.demo-lead {
+  color: #7f8c8d;
+  margin: -.5rem 0 2rem;
+}
+
+.demo-task {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: left;
+  margin: 1.5rem 0 .75rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #e3e3e8;
+}
+
+.demo-card {
+  background: #fff;
+  border: 1px solid #e8e8ec;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.demo-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;   /* the sources differ in aspect; never crop the data */
+}
+
+/* letterbox in each clip's own background colour so the bars are invisible */
+.demo-card video.is-flow { background: #fff; }
+.demo-card video.is-exec { background: #000; }
+
+.demo-meta {
+  padding: .8rem 1rem 1rem;
+  text-align: left;
+}
+
+.demo-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  margin: 0 0 .2rem !important;
+}
+
+.demo-label.is-flow { color: #2f6f8f; }
+.demo-label.is-exec { color: #d9542b; }
+
+.demo-sub {
+  font-size: .85rem;
+  color: #7f8c8d;
+  line-height: 1.5;
+  margin: 0 !important;
+}
