@@ -91,11 +91,6 @@ h1.title {
 h1.title .brand { color: var(--ember); }
 
 
-.affil {
-  font-size: 14px;
-  color: var(--text-mute);
-  margin: 0 0 30px;
-}
 
 /* ----------------------------------------------------------------- links */
 
