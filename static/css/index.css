@@ -173,7 +173,7 @@ body {
 
 /* equal-height cards in the paired rows, but do not fight .is-vcentered on the
    cross-platform row (an id selector outranks Bulma's class) */
-#demo .columns:not(.is-vcentered) { align-items: stretch; }
+#results .columns:not(.is-vcentered) { align-items: stretch; }
 
 .demo-task {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;

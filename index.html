@@ -28,8 +28,8 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="#demo">Demo</a>
       <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#results">Results</a>
       <a class="navbar-item" href="#method">Method</a>
       <a class="navbar-item" href="#execution">Execution</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
@@ -88,12 +88,28 @@
   </div>
 </section>
 
-<!-- ============================================================== DEMO -->
-<section class="section is-tinted" id="demo">
+<!-- ========================================================== ABSTRACT -->
+<section class="section is-tinted" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce: robots perform roughly 1% of surgeries, while video-only data is abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize video data, but flow alone specifies how an object should move, not where and when the tool should engage it, a distinction that is critical in surgery.</p>
+          <p>We introduce SurgFlow, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without action labels. For each object point, it predicts a future 3D trajectory and contact scores. We extract targets via 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and use predicted contact to trigger grasp and release while optimizing end effector motion from flow.</p>
+          <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and handover, outperforming baselines trained on equal data with or without action labels. Zero-shot transfer to a humanoid-based laparoscopic robot achieves 85% and 70% average success under similar and novel camera viewpoints, respectively.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== RESULTS -->
+<section class="section" id="results">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">Demo</h2>
+        <h2 class="title is-3">Results</h2>
         <p class="demo-lead">Contact flow predicted from video, and the robot behavior it produces. Nothing below uses action labels.</p>
 
         <h3 class="demo-task">Tissue reveal</h3>
@@ -156,22 +172,6 @@
           <p class="setup-caption"><b>Cross-platform transfer.</b> <b>(a)</b> The da Vinci Research Kit and <b>(b)</b> LapSurgie, a humanoid-based laparoscopic platform, with the endoscope camera repositioned to test novel viewpoints. The clip shows LapSurgie performing the same tissue reveal. The contact flow is predicted once from video and executed on both robots &mdash; transfer to LapSurgie is <b>zero-shot</b>, with no retraining and no adaptation, reaching <b>85%</b> and <b>70%</b> average success under similar and novel camera viewpoints respectively. Because the representation lives on the object rather than in any robot's joint coordinates, one prediction drives two different kinematics.</p>
         </div>
 
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================== ABSTRACT -->
-<section class="section" id="abstract">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>Paired video&ndash;action demonstrations enable autonomous surgical behavior, but such data is scarce: robots perform roughly 1% of surgeries, while video-only data is abundant. Learning 3D object flow offers an embodiment-agnostic way to utilize video data, but flow alone specifies how an object should move, not where and when the tool should engage it, a distinction that is critical in surgery.</p>
-          <p>We introduce SurgFlow, a framework that learns 3D Object-Centric Contact Flow from stereo surgical video without action labels. For each object point, it predicts a future 3D trajectory and contact scores. We extract targets via 3D tracking and tool&ndash;object proximity, train a flow matching generator to predict them, and use predicted contact to trigger grasp and release while optimizing end effector motion from flow.</p>
-          <p>On the da Vinci Research Kit (dVRK), SurgFlow succeeds in 37 of 39 stage evaluations across tissue retraction, bimanual reveal, needle pickup, and handover, outperforming baselines trained on equal data with or without action labels. Zero-shot transfer to a humanoid-based laparoscopic robot achieves 85% and 70% average success under similar and novel camera viewpoints, respectively.</p>
-        </div>
       </div>
     </div>
   </div>
