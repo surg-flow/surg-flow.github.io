@@ -255,11 +255,12 @@ body {
   padding: 1rem;
 }
 
-/* Equal halves. The figure is 2.05:1 and the clip 0.8:1, so at the same width
-   the clip is much the taller of the two; the figure is centred against it. */
+/* Two thirds figure, one third clip. The figure is 2.05:1 and the clip 0.8:1,
+   so this split also brings their heights close (about 296px vs 380px at full
+   width); the figure is centred against the taller clip. */
 .setup-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 1rem;
   align-items: center;
 }
