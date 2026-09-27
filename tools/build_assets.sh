@@ -24,6 +24,7 @@ render() { # pdf out target_width_px
 
 render "$FIG/method1_fixed_color.pdf"                 "$SITE/static/images/method.png"          2200
 render "$FIG/needle_handover_exp_fixed_color (1).pdf" "$SITE/static/images/needle_handover.png" 2000
+render "$FIG/experiment_setup.pdf"                    "$SITE/static/images/experiment_setup.png"  1400
 
 echo "figures rebuilt -> $(du -sh "$SITE/static" | cut -f1)"
 

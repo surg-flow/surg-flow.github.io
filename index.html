@@ -145,23 +145,15 @@
         </div>
 
         <h3 class="demo-task">Cross-platform transfer</h3>
-        <div class="columns is-vcentered">
-          <div class="column is-5">
-            <div class="demo-card">
-              <video class="is-exec is-portrait" data-src="./static/videos/lapsurgie_exec.mp4"
-                     poster="./static/videos/lapsurgie_exec.jpg" muted loop playsinline preload="none"></video>
-              <div class="demo-meta">
-                <p class="demo-label is-exec">Robot execution &middot; LapSurgie</p>
-                <p class="demo-sub">The humanoid-based laparoscopic platform performing the same tissue reveal.</p>
-              </div>
-            </div>
+        <div class="setup-card">
+          <div class="setup-row">
+            <img class="setup-figure" src="./static/images/experiment_setup.png" width="1400" height="682"
+                 loading="lazy" decoding="async"
+                 alt="Experimental platforms: (a) the da Vinci Research Kit and (b) LapSurgie, a humanoid-based laparoscopic robot, with the endoscope camera repositioned to change viewpoint.">
+            <video class="setup-clip" data-src="./static/videos/lapsurgie_exec.mp4"
+                   poster="./static/videos/lapsurgie_exec.jpg" muted loop playsinline preload="none"></video>
           </div>
-          <div class="column is-7">
-            <div class="demo-note">
-              <p>The contact flow is predicted once from video, then executed on two different robots. Transfer to LapSurgie is <b>zero-shot</b> &mdash; no retraining and no adaptation &mdash; reaching <b>85%</b> and <b>70%</b> average success under similar and novel camera viewpoints respectively.</p>
-              <p>Because the representation lives on the object rather than in any robot's joint coordinates, the same prediction drives a da Vinci Research Kit and a humanoid platform with different kinematics.</p>
-            </div>
-          </div>
+          <p class="setup-caption"><b>Cross-platform transfer.</b> <b>(a)</b> The da Vinci Research Kit and <b>(b)</b> LapSurgie, a humanoid-based laparoscopic platform, with the endoscope camera repositioned to test novel viewpoints. The clip shows LapSurgie performing the same tissue reveal. The contact flow is predicted once from video and executed on both robots &mdash; transfer to LapSurgie is <b>zero-shot</b>, with no retraining and no adaptation, reaching <b>85%</b> and <b>70%</b> average success under similar and novel camera viewpoints respectively. Because the representation lives on the object rather than in any robot's joint coordinates, one prediction drives two different kinematics.</p>
         </div>
 
       </div>
